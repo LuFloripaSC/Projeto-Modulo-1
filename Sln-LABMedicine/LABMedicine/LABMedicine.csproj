@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Enumerator\" />
-    <Folder Include="DTOs\" />
   </ItemGroup>
 
 </Project>

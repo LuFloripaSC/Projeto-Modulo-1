@@ -21,7 +21,11 @@ namespace LABMedicine.Models
         public string Especializao { get; set; }
 
         [NotNull]
-        [Column("STATUS")]
+        [Column("STATUS DO SISTEMA")]
         public bool EstadoNoSistema { get; set; }
+
+        [AllowNull]
+        [Column("ATENDIMENTOS REALIZADOS")]
+        public int AtendimentosRealizados { get; set; }
     }
 }

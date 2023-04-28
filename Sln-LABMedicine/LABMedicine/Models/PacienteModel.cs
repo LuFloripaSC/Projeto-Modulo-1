@@ -14,11 +14,11 @@ namespace LABMedicine.Models
 
         [AllowNull]
         [Column("ALERGIAS"), MaxLength(20)]
-        public string Alergias { get; set; }
+        public List<string> Alergias { get; set; }
 
         [AllowNull]
         [Column("CUIDADOS ESPECIFICOS"), MaxLength (50)]
-        public string Cuidados { get; set;}
+        public List<string> CuidadosEspecificos { get; set;}
 
         [AllowNull]
         [Column("CONVENIO"), MaxLength(20)]
@@ -26,6 +26,10 @@ namespace LABMedicine.Models
 
         [Column("STATUS DE ATENDIMENTO")]
         public int Status { get; set; }
+
+        [AllowNull]
+        [Column(" TOTAL DE ATENDIMENTOS")]
+        public int TotalAtendimentos { get; set; }
     }
 }
 

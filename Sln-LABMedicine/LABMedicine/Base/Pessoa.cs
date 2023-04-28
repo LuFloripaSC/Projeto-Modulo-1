@@ -8,6 +8,7 @@ namespace LABMedicine.Base
     {
         [Key]
         [Column("ID")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Column("NOME COMPLETO"), MaxLength(30)]
@@ -18,7 +19,7 @@ namespace LABMedicine.Base
 
         [Required]
         [Column("DATA DE NASCIMENTO")]
-        public DateTime DateNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
 
         [Column("CPF"), MaxLength(15)]
         public string CPF { get; set; }
