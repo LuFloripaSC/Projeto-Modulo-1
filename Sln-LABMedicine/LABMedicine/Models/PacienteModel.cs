@@ -25,7 +25,7 @@ namespace LABMedicine.Models
         public string Convenio { get; set;}
 
         [Column("STATUS DE ATENDIMENTO")]
-        public int Status { get; set; }
+        public string Status { get; set; }
 
         [AllowNull]
         [Column(" TOTAL DE ATENDIMENTOS")]

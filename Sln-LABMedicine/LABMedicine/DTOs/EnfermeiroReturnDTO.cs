@@ -2,7 +2,7 @@
 
 namespace LABMedicine.DTOs
 {
-    public class EnfermeiroReturnDTO
+    public class EnfermeiroReturnDTO : PessoaDTO
     {
         [Required]
         public int intentificador { get; set; }

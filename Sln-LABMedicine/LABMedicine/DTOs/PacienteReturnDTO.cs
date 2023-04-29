@@ -22,6 +22,9 @@ namespace LABMedicine.DTOs
         [Required]
         public string StatusAtendimento { get; set; }
 
+        [Required]
+        public int TotalAtendimentos { get; set; }
+
     }
 
 }

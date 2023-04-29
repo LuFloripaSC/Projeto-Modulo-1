@@ -2,7 +2,7 @@
 
 namespace LABMedicine.DTOs
 {
-    public abstract class EnfermeiroCreateDTOcs : PessoaDTO
+    public abstract class EnfermeiroCreateDTO : PessoaDTO
     {
         [Required]
         [StringLength(100)]

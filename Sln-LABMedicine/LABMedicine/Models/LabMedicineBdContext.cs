@@ -5,8 +5,8 @@ namespace LABMedicine.Models
 {
     public class LabMedicineBdContext : DbContext
     {
-        public LabMedicineBdContext(DbContextOptions<LabMedicineBdContext> options) : base(options) 
-        { 
+        public LabMedicineBdContext(DbContextOptions<LabMedicineBdContext> options) : base(options)
+        {
         }
         public DbSet <EnfermeiroModel> Enfermeiros { get; set; }
         public DbSet <MedicoModel> Medicos { get; set; }

@@ -18,7 +18,7 @@ namespace LABMedicine.Models
 
         [Required]
         [Column("ESPECIALIZACAO"), MaxLength(20)]
-        public string Especializao { get; set; }
+        public string Especializacao { get; set; }
 
         [NotNull]
         [Column("STATUS DO SISTEMA")]

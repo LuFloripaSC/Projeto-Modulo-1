@@ -2,6 +2,7 @@
 using LABMedicine.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using LABMedicine.Controllers;
 
 namespace LABMedicine.Controllers
 {
@@ -28,9 +29,9 @@ namespace LABMedicine.Controllers
                 pacienteModel.NomeCompleto = pacienteDTO.NomeCompleto;
                 pacienteModel.CPF = pacienteDTO.CPF;
                 pacienteModel.TelEmergencia = pacienteDTO.TelEmergencia;
-                pacienteModel.Cuidados = pacienteDTO.CuidadosEspecificos;
+                pacienteModel.CuidadosEspecificos = pacienteDTO.CuidadosEspecificos;
                 pacienteModel.Alergias = pacienteDTO.Alergias;
-                pacienteModel.DateNascimento = pacienteDTO.DataNascimento;
+                pacienteModel.DataNascimento = pacienteDTO.DataNascimento;
                 pacienteModel.Convenio = pacienteDTO.Convenio;
                 pacienteModel.Genero = pacienteDTO.Genero;
                 pacienteModel.Telefone = pacienteDTO.Telefone;
@@ -48,20 +49,22 @@ namespace LABMedicine.Controllers
                 _labMedicineBdContext.SaveChanges();
 
                 //Cria o objeto DTO e alimenta pra retornar ao usuario na tela
-                PacienteResponseDTO pacienteResponseDTO = new PacienteResponseDTO();
-                pacienteResponseDTO.Nome = pacienteModel.NomeCompleto;
-                pacienteResponseDTO.CPF = pacienteModel.CPF;
-                pacienteResponseDTO.ContatoEmergencia = pacienteModel.ContatoEmergencia;
-                pacienteResponseDTO.CuidadosEspecificos = pacienteModel.CuidadosEspecificos;
-                pacienteResponseDTO.Alergias = pacienteModel.Alergias;
-                pacienteResponseDTO.DataNascimento = pacienteModel.DataNascimento;
-                pacienteResponseDTO.Convenio = pacienteModel.Convenio;
-                pacienteResponseDTO.Genero = pacienteModel.Genero;
-                pacienteResponseDTO.Telefone = pacienteModel.Telefone;
-                pacienteResponseDTO.Codigo = pacienteModel.Id;
-                pacienteResponseDTO.Atendimentos = pacienteModel.TotalAtendimentos;
-
-                return StatusCode(201, pacienteResponseDTO);
+                PacienteReturnDTO pacienteReturnDTO = new PacienteReturnDTO();
+                pacienteReturnDTO.NomeCompleto = pacienteModel.NomeCompleto;
+                pacienteReturnDTO.CPF = pacienteModel.CPF;
+                pacienteReturnDTO.TelEmergencia = pacienteModel.TelEmergencia;
+                pacienteReturnDTO.CuidadosEspecificos = pacienteModel.CuidadosEspecificos;
+                pacienteReturnDTO.Alergias = pacienteModel.Alergias;
+                pacienteReturnDTO.DataNascimento = pacienteModel.DataNascimento;
+                pacienteReturnDTO.Convenio = pacienteModel.Convenio;
+                pacienteReturnDTO.Genero = pacienteModel.Genero;
+                pacienteReturnDTO.Telefone = pacienteModel.Telefone;
+                pacienteReturnDTO.intentificador = pacienteModel.Id;
+                pacienteReturnDTO.StatusAtendimento = pacienteModel.Status;
+                pacienteReturnDTO.TotalAtendimentos = pacienteModel.TotalAtendimentos;
+                {
+                    return StatusCode(201, pacienteReturnDTO);
+                }
 
             }
 
@@ -71,8 +74,8 @@ namespace LABMedicine.Controllers
             }
         }
 
-        [HttpPut("/pacientes2/{identificador}")]
-        public ActionResult<PacienteResponseDTO> Put([FromRoute] int identificador, PacienteUpdateDTO pacienteUpdateDTO)
+        [HttpPut("/pacientes/{identificador}")]
+        public ActionResult<PacienteReturnDTO> Put([FromRoute] int identificador, PacienteUpdateDTO pacienteUpdateDTO)
         {
             try
             {
@@ -83,15 +86,15 @@ namespace LABMedicine.Controllers
                     return StatusCode(404, "Paciente não encontrado com o identificador informado.");
 
                 //se existir, verifica se os campos estão preenchidos e alimenta a model com a DTO
-                if (pacienteUpdateDTO.Nome != null)
-                    pacienteModel.NomeCompleto = pacienteUpdateDTO.Nome;
+                if (pacienteUpdateDTO.NomeCompleto != null)
+                    pacienteModel.NomeCompleto = pacienteUpdateDTO.NomeCompleto;
                 if (pacienteUpdateDTO.Genero != null)
                     pacienteModel.Genero = pacienteUpdateDTO.Genero;
                 pacienteModel.DataNascimento = pacienteUpdateDTO.DataNascimento;
                 if (pacienteUpdateDTO.Telefone != null)
                     pacienteModel.Telefone = pacienteUpdateDTO.Telefone;
-                if (pacienteUpdateDTO.ContatoEmergencia != null)
-                    pacienteModel.ContatoEmergencia = pacienteUpdateDTO.ContatoEmergencia;
+                if (pacienteUpdateDTO.TelEmergencia != null)
+                    pacienteModel.TelEmergencia = pacienteUpdateDTO.TelEmergencia;
                 if (pacienteUpdateDTO.Alergias != null)
                     pacienteModel.Alergias = pacienteUpdateDTO.Alergias;
                 if (pacienteUpdateDTO.CuidadosEspecificos != null)
@@ -99,7 +102,7 @@ namespace LABMedicine.Controllers
                 if (pacienteUpdateDTO.Convenio != null)
                     pacienteModel.Convenio = pacienteUpdateDTO.Convenio;
 
-                pacienteModel.StatusAtendimento = pacienteUpdateDTO.StatusAtendimento;
+                pacienteModel.Status = pacienteUpdateDTO.StatusAtendimento;
 
                 //Atualiza no banco
                 _labMedicineBdContext.Pacientes.Attach(pacienteModel);
@@ -108,20 +111,20 @@ namespace LABMedicine.Controllers
                 _labMedicineBdContext.SaveChanges();
 
                 //Cria um objeto DTO para retornar ao usuario os campos atualizados
-                PacienteResponseDTO pacienteResponseDTO = new PacienteResponseDTO();
-                pacienteResponseDTO.Nome = pacienteModel.NomeCompleto;
-                pacienteResponseDTO.CPF = pacienteModel.CPF;
-                pacienteResponseDTO.ContatoEmergencia = pacienteModel.ContatoEmergencia;
-                pacienteResponseDTO.CuidadosEspecificos = pacienteModel.CuidadosEspecificos;
-                pacienteResponseDTO.Alergias = pacienteModel.Alergias;
-                pacienteResponseDTO.DataNascimento = pacienteModel.DataNascimento;
-                pacienteResponseDTO.Convenio = pacienteModel.Convenio;
-                pacienteResponseDTO.Genero = pacienteModel.Genero;
-                pacienteResponseDTO.Telefone = pacienteModel.Telefone;
-                pacienteResponseDTO.Codigo = pacienteModel.Id;
-                pacienteResponseDTO.Atendimentos = pacienteModel.TotalAtendimentos;
+                PacienteReturnDTO pacienteReturnDTO = new PacienteReturnDTO();
+                pacienteReturnDTO.NomeCompleto = pacienteModel.NomeCompleto;
+                pacienteReturnDTO.CPF = pacienteModel.CPF;
+                pacienteReturnDTO.TelEmergencia = pacienteModel.TelEmergencia;
+                pacienteReturnDTO.CuidadosEspecificos = pacienteModel.CuidadosEspecificos;
+                pacienteReturnDTO.Alergias = pacienteModel.Alergias;
+                pacienteReturnDTO.DataNascimento = pacienteModel.DataNascimento;
+                pacienteReturnDTO.Convenio = pacienteModel.Convenio;
+                pacienteReturnDTO.Genero = pacienteModel.Genero;
+                pacienteReturnDTO.Telefone = pacienteModel.Telefone;
+                pacienteReturnDTO.intentificador = pacienteModel.Id;
+                pacienteReturnDTO.TotalAtendimentos = pacienteModel.TotalAtendimentos;
 
-                return StatusCode(200, pacienteResponseDTO);
+                return StatusCode(200, pacienteReturnDTO);
             }
 
             catch (Exception)
@@ -130,7 +133,7 @@ namespace LABMedicine.Controllers
             }
         }
 
-        [HttpDelete("/pacientes2/{identificador}")]
+        [HttpDelete("/pacientes/{identificador}")]
         public ActionResult Delete([FromRoute] int identificador)
         {
             try
@@ -162,25 +165,25 @@ namespace LABMedicine.Controllers
             }
         }
 
-        [HttpGet("/pacientes2")]
-        public ActionResult<List<PacienteResponseDTO>> Get([FromQuery] PacienteStatusRequestDTO status)
+        [HttpGet("/pacientes")]
+        public ActionResult<List<PacienteReturnDTO>> Get([FromQuery] PacienteCreateDTO status)
         {
             try
             {
                 //Cria um novo objeto de lista para retornar
-                List<PacienteResponseDTO> lista = new();
+                List<PacienteReturnDTO> lista = new();
 
                 //Referencia a classe para alimentar com o retorno da consulta
                 IQueryable<PacienteModel> pacientesInnerJoin;
 
                 //se o status do atendimento foi informado, entao filtra a consulta pelo status, senao busca todos
                 if (status.StatusAtendimento != null)
-                    pacientesInnerJoin = _labMedicineBdContext.Pacientes.Where(x => x.StatusAtendimento == status.StatusAtendimento);
+                    pacientesInnerJoin = _labMedicineBdContext.Pacientes.Where(x => x.Status == status.StatusAtendimento);
                 else
                     pacientesInnerJoin = _labMedicineBdContext.Pacientes;
 
                 //Referencia a classe DTO para usar o objeto dentro do for.
-                PacienteResponseDTO pacienteResponseDTO;
+                PacienteReturnDTO pacienteReturnDTO;
 
                 //se encontrou algum resultado na consulta então navega neles pra alimentar a lista
                 if (pacientesInnerJoin.Any())
@@ -188,23 +191,23 @@ namespace LABMedicine.Controllers
                     foreach (PacienteModel paciente in pacientesInnerJoin)
                     {
                         //Cria um novo objeto DTO para adicionar na lista de retorno
-                        pacienteResponseDTO = new PacienteResponseDTO();
+                        pacienteReturnDTO = new PacienteReturnDTO();
 
                         //Alimenta o objeto DTO
-                        pacienteResponseDTO.Nome = paciente.NomeCompleto;
-                        pacienteResponseDTO.CPF = paciente.CPF;
-                        pacienteResponseDTO.ContatoEmergencia = paciente.ContatoEmergencia;
-                        pacienteResponseDTO.CuidadosEspecificos = paciente.CuidadosEspecificos;
-                        pacienteResponseDTO.Alergias = paciente.Alergias;
-                        pacienteResponseDTO.DataNascimento = paciente.DataNascimento;
-                        pacienteResponseDTO.Convenio = paciente.Convenio;
-                        pacienteResponseDTO.Genero = paciente.Genero;
-                        pacienteResponseDTO.Telefone = paciente.Telefone;
-                        pacienteResponseDTO.Codigo = paciente.Id;
-                        pacienteResponseDTO.Atendimentos = paciente.TotalAtendimentos;
+                        pacienteReturnDTO.NomeCompleto = paciente.NomeCompleto;
+                        pacienteReturnDTO.CPF = paciente.CPF;
+                        pacienteReturnDTO.TelEmergencia = paciente.TelEmergencia;
+                        pacienteReturnDTO.CuidadosEspecificos = paciente.CuidadosEspecificos;
+                        pacienteReturnDTO.Alergias = paciente.Alergias;
+                        pacienteReturnDTO.DataNascimento = paciente.DataNascimento;
+                        pacienteReturnDTO.Convenio = paciente.Convenio;
+                        pacienteReturnDTO.Genero = paciente.Genero;
+                        pacienteReturnDTO.Telefone = paciente.Telefone;
+                        pacienteReturnDTO.intentificador = paciente.Id;
+                        pacienteReturnDTO.TotalAtendimentos = paciente.TotalAtendimentos;
 
                         //Adiciona na lista de retorno
-                        lista.Add(pacienteResponseDTO);
+                        lista.Add(pacienteReturnDTO);
                     }
 
                     //retorna a lista
@@ -225,7 +228,7 @@ namespace LABMedicine.Controllers
         }
 
         [HttpGet("/pacientes2/{identificador}")]
-        public ActionResult<PacienteResponseDTO> GetPorId([FromRoute] int identificador)
+        public ActionResult<PacienteReturnDTO> GetPorId([FromRoute] int identificador)
         {
             try
             {
@@ -234,20 +237,20 @@ namespace LABMedicine.Controllers
                     throw new MyException(404, "Paciente não encontrado para o identificador informado.");
 
                 //Alimenta o objeto DTO
-                PacienteResponseDTO pacienteResponseDTO = new PacienteResponseDTO();
-                pacienteResponseDTO.Nome = paciente.NomeCompleto;
-                pacienteResponseDTO.CPF = paciente.CPF;
-                pacienteResponseDTO.ContatoEmergencia = paciente.ContatoEmergencia;
-                pacienteResponseDTO.CuidadosEspecificos = paciente.CuidadosEspecificos;
-                pacienteResponseDTO.Alergias = paciente.Alergias;
-                pacienteResponseDTO.DataNascimento = paciente.DataNascimento;
-                pacienteResponseDTO.Convenio = paciente.Convenio;
-                pacienteResponseDTO.Genero = paciente.Genero;
-                pacienteResponseDTO.Telefone = paciente.Telefone;
-                pacienteResponseDTO.Codigo = paciente.Id;
-                pacienteResponseDTO.Atendimentos = paciente.TotalAtendimentos;
+                PacienteReturnDTO pacienteReturnDTO = new PacienteReturnDTO();
+                pacienteReturnDTO.NomeCompleto = paciente.NomeCompleto;
+                pacienteReturnDTO.CPF = paciente.CPF;
+                pacienteReturnDTO.TelEmergencia = paciente.TelEmergencia;
+                pacienteReturnDTO.CuidadosEspecificos = paciente.CuidadosEspecificos;
+                pacienteReturnDTO.Alergias = paciente.Alergias;
+                pacienteReturnDTO.DataNascimento = paciente.DataNascimento;
+                pacienteReturnDTO.Convenio = paciente.Convenio;
+                pacienteReturnDTO.Genero = paciente.Genero;
+                pacienteReturnDTO.Telefone = paciente.Telefone;
+                pacienteReturnDTO.intentificador = paciente.Id;
+                pacienteReturnDTO.TotalAtendimentos = paciente.TotalAtendimentos;
 
-                return StatusCode(200, pacienteResponseDTO);
+                return StatusCode(200, pacienteReturnDTO);
             }
 
             catch (Exception)
