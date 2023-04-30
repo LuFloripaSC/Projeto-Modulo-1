@@ -1,8 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using LABMedicine.Enumerator;
+using System.ComponentModel.DataAnnotations;
+using static LABMedicine.Base.ValidacaoCustomizada;
+using System.Text.Json.Serialization;
 
 namespace LABMedicine.DTOs
 {
-    public abstract class PacienteReturnDTO : PessoaDTO
+    public class PacienteReturnDTO : PessoaDTO
     {
         [Required]
         public int intentificador { get; set; }
@@ -19,8 +22,8 @@ namespace LABMedicine.DTOs
         [StringLength(20)]
         public string Convenio { get; set; }
 
-        [Required]
-        public string StatusAtendimento { get; set; }
+        [JsonConverter(typeof(StatusAtendimentoConverter))]
+        public EnumStatusAtendimento StatusAtendimento { get; set; }
 
         [Required]
         public int TotalAtendimentos { get; set; }

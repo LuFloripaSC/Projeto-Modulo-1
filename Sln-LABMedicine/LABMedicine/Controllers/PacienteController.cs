@@ -3,6 +3,7 @@ using LABMedicine.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LABMedicine.Controllers;
+using LABMedicine.Enumerator;
 
 namespace LABMedicine.Controllers
 {
@@ -62,9 +63,9 @@ namespace LABMedicine.Controllers
                 pacienteReturnDTO.intentificador = pacienteModel.Id;
                 pacienteReturnDTO.StatusAtendimento = pacienteModel.Status;
                 pacienteReturnDTO.TotalAtendimentos = pacienteModel.TotalAtendimentos;
-                {
-                    return StatusCode(201, pacienteReturnDTO);
-                }
+                
+                return StatusCode(201, pacienteReturnDTO);
+                
 
             }
 
@@ -166,7 +167,7 @@ namespace LABMedicine.Controllers
         }
 
         [HttpGet("/pacientes")]
-        public ActionResult<List<PacienteReturnDTO>> Get([FromQuery] PacienteCreateDTO status)
+        public ActionResult<List<PacienteReturnDTO>> Get([FromQuery] PacienteEstadoNoSistemaDTO status)
         {
             try
             {
@@ -234,7 +235,7 @@ namespace LABMedicine.Controllers
             {
                 PacienteModel paciente = _labMedicineBdContext.Pacientes.Where(w => w.Id == identificador).FirstOrDefault();
                 if (paciente == null)
-                    throw new MyException(404, "Paciente não encontrado para o identificador informado.");
+                    return StatusCode(404, "Paciente não encontrado para o identificador informado.");
 
                 //Alimenta o objeto DTO
                 PacienteReturnDTO pacienteReturnDTO = new PacienteReturnDTO();

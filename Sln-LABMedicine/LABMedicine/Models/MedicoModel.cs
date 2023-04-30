@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using LABMedicine.Base;
+using LABMedicine.Enumerator;
 
 namespace LABMedicine.Models
 {
@@ -18,11 +19,11 @@ namespace LABMedicine.Models
 
         [Required]
         [Column("ESPECIALIZACAO"), MaxLength(20)]
-        public string Especializacao { get; set; }
+        public EnumEspecializacaoClinica Especializacao { get; set; }
 
         [NotNull]
         [Column("STATUS DO SISTEMA")]
-        public bool EstadoNoSistema { get; set; }
+        public EnumEstadoNoSistema EstadoNoSistema { get; set; }
 
         [AllowNull]
         [Column("ATENDIMENTOS REALIZADOS")]

@@ -1,4 +1,5 @@
 ﻿using LABMedicine.DTOs;
+using LABMedicine.Enumerator;
 using LABMedicine.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -164,7 +165,7 @@ namespace LABMedicine.Controllers
         }
 
         [HttpGet("/medicos")]
-        public ActionResult<List<MedicoReturnDTO>> Get([FromQuery] MedicoCreateDTO status)
+        public ActionResult<List<MedicoReturnDTO>> Get(EnumEstadoNoSistema? status)
         {
             try
             {
@@ -175,8 +176,8 @@ namespace LABMedicine.Controllers
                 IQueryable<MedicoModel> medicosInnerJoin;
 
                 //se o status do atendimento foi informado, entao filtra a consulta pelo status, senao busca todos
-                if (status.StatusAtendimento != null)
-                    medicosInnerJoin = _labMedicineBdContext.Medicos.Where(x => x.Status == status.StatusAtendimento);
+                if (status != null)
+                    medicosInnerJoin = _labMedicineBdContext.Medicos.Where(x => x.EstadoNoSistema == status);
                 else
                     medicosInnerJoin = _labMedicineBdContext.Medicos;
 
@@ -232,7 +233,7 @@ namespace LABMedicine.Controllers
             {
                 MedicoModel medico = _labMedicineBdContext.Medicos.Where(w => w.Id == identificador).FirstOrDefault();
                 if (medico == null)
-                    throw new MyException(404, "Medico não encontrado para o identificador informado.");
+                    return StatusCode (404, "Medico não encontrado para o identificador informado.");
 
                 //Alimenta o objeto DTO
                 MedicoReturnDTO medicoReturnDTO = new MedicoReturnDTO();

@@ -55,9 +55,9 @@ namespace LABMedicine.Controllers
                 enfermeiroReturnDTO.Genero = enfermeiroModel.Genero;
                 enfermeiroReturnDTO.Telefone = enfermeiroModel.Telefone;
                 enfermeiroReturnDTO.intentificador = enfermeiroModel.Id;
-                {
+                
                     return StatusCode(201, enfermeiroReturnDTO);
-                }
+                
 
             }
 
@@ -149,7 +149,7 @@ namespace LABMedicine.Controllers
         }
 
         [HttpGet("/enfermeiros")]
-        public ActionResult<List<EnfermeiroReturnDTO>> Get([FromQuery] EnfermeiroCreateDTO status)
+        public ActionResult<List<EnfermeiroReturnDTO>> Get()
         {
             try
             {
@@ -210,7 +210,7 @@ namespace LABMedicine.Controllers
             {
                 EnfermeiroModel enfermeiro = _labMedicineBdContext.Enfermeiros.Where(w => w.Id == identificador).FirstOrDefault();
                 if (enfermeiro == null)
-                    throw new MyException(404, "Enfermeiro não encontrado para o identificador informado.");
+                    return StatusCode(404, "Enfermeiro não encontrado para o identificador informado.");
 
                 //Alimenta o objeto DTO
                 EnfermeiroReturnDTO enfermeiroReturnDTO = new EnfermeiroReturnDTO();

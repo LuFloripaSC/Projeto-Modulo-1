@@ -1,4 +1,5 @@
 ﻿using LABMedicine.Base;
+using LABMedicine.Enumerator;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
@@ -25,7 +26,7 @@ namespace LABMedicine.Models
         public string Convenio { get; set;}
 
         [Column("STATUS DE ATENDIMENTO")]
-        public string Status { get; set; }
+        public EnumStatusAtendimento Status { get; set; }
 
         [AllowNull]
         [Column(" TOTAL DE ATENDIMENTOS")]

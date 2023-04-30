@@ -10,11 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string connectionString = "Server=LUCIANONOTE\\SQLEXPRESS;database=LabMedicineBdContext;Trusted_Connection=True;TrustServerCertificate=True;";
+string connectionString = "Server=LUCIANONOTE\\SQLEXPRESS;database=labmedicinebd;Trusted_Connection=True;TrustServerCertificate=True;";
 
 builder.Services.AddDbContext<LabMedicineBdContext>(x => x.UseSqlServer(connectionString));
-
-builder.Services.AddDbContext<LabMedicineBdContext>();
 
 var app = builder.Build();
 
