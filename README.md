@@ -45,6 +45,9 @@ No caso de requisição com dados inválidos, o HTTP Status Code 400 (Bad Reques
 Em caso de não ser encontrado registro com o código informado, o HTTP Status Code 404 (Not Found) será retornado, retornando uma mensagem de erro explicativa no corpo da resposta.
 
 ### Listagem
+Essa funcionalidade permite que seja listado todos os pacientes já cadastrados previamente no sistema, e deve ser realizado através de uma requisição HTTP Get, e poderá ser realizada de duas formas, utlizando-se o endpoint "/api/paciente" ou "/api/pacientes/{identificador}", onde a primeira permite que seja listado todos os pacientes e a segunda faz uma busca através do identificador (Id);
+Quando a listagem é realizada de maneira genérica, o sistema permite que seja feita uma filtragem atráves de um "query param"  um status não obrigatório que permite identificar o status de atendimento pré definido (AGUARDANDO_ATENDIMENTO, EM_ATENDIMENTO, ATENDIDO e NÃO ATENDIDO), o sistema então retornará com um JSON contentado a listagem dos pacientes encontrados. Já quando a listagem é realizada através do identificador (Id), o "query param" não é apresentado e o sistema retorna um JSON com o paciente com o identificador (Id) correspondente.
+Havendo 
 
 
 
