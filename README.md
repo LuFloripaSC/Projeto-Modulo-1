@@ -38,7 +38,7 @@ Já se o CPF informado já estar cadastrado, o HTTP Status Code 409 (Conflict) s
 Os campos a serem alimentados para pessoa cadastrada no sistema, podem variar de acordo com cada tipo de cadastro que estão listados abaixo:
 
 ### Paciente:
-(todos os campos obrigatórios) e mais
+(todos os campos obrigatórios) e mais;
 
 -Tel de Emergência;
 
@@ -53,10 +53,13 @@ Os campos a serem alimentados para pessoa cadastrada no sistema, podem variar de
 -Total de Atendimentos (que será alimentado a cada vez que o sistema identificar um atendimento realizado).
 
 ### Médico:
-
-
-
 (todos os campos obrigatórios) e mais;
+- Instituição de Ensino;
+- CRM/UF;
+- Especialização (será informada através de um "query param", onde poderá ser selecionado Clinica Geral, Anestesia, Dermatologia, Ginecologia, Neurologia, Pediatria, Psiquiatria ou Ortopedia);
+- Status no Sistema; informando caso seja um médico ativo ou inativo;
+- Atendimentos realizados (que será acrescido a cada atendimento identificado pelo sistema).
+
 
 
 ### Atualização
