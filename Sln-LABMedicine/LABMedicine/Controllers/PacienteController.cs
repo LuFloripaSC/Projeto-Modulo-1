@@ -228,7 +228,7 @@ namespace LABMedicine.Controllers
             }
         }
 
-        [HttpGet("/pacientes2/{identificador}")]
+        [HttpGet("/pacientes/{identificador}")]
         public ActionResult<PacienteReturnDTO> GetPorId([FromRoute] int identificador)
         {
             try
