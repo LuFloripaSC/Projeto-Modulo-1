@@ -46,7 +46,7 @@ Os campos a serem alimentados para pessoa cadastrada no sistema, podem variar de
 - Status de Atendimento (onde será informado através de um "query param", se o paciente já foi atendido, está aguardando atendimento, está em atendimento ou não foi atendido);
 - Total de Atendimentos (que será alimentado a cada vez que o sistema identificar um atendimento realizado).
 
-### Caddastro/Médico:
+### Cadastro/Médico:
 (todos os campos obrigatórios) e mais;
 - Instituição de Ensino;
 - CRM/UF;
