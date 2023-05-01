@@ -27,6 +27,8 @@ problema de dublicidade de informações no sistema, serão criados:
 - 2 médicos fictícios;
 - 2 enfermeiros fictício.
 
+Para iniciar o sistema, após baixar o projeto o DEV deverá excecutar o comando "Add-Migration InitialCreate" do Entity Framework onde será feita a conexão com o banco de dados e logo após o comando "Update-Database" que realizará a criação das tabelas e o "seeder"inicial no sistema.
+
 ### Operação do Sistema
 As funcionalidades do sistema irão operar basicamente da mesma forma nos endpoints de pacientes, médicos e enfermeiros, então para efeito de descrição será detalhado a utlização do endpoint "/paciente" que traz informações mais completas.
 
