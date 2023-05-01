@@ -37,22 +37,16 @@ No caso dos dados serem inválidos, o HTTP Status Code 400 (Bad Request) será r
 Já se o CPF informado já estar cadastrado, o HTTP Status Code 409 (Conflict) será retornado, informando uma mensagem de erro explicativa no corpo da resposta.
 Os campos a serem alimentados para pessoa cadastrada no sistema, podem variar de acordo com cada tipo de cadastro que estão listados abaixo:
 
-### Paciente:
+### Cadastro/Paciente:
 (todos os campos obrigatórios) e mais;
+- Tel de Emergência;
+- Alergias (que serão organizadas em uma lista para ser apresentadas no banco de dados);
+- Cuidados específicos ( que serão organizados em uma lista para ser apresentado no banco de dados);
+- Convênio;
+- Status de Atendimento (onde será informado através de um "query param", se o paciente já foi atendido, está aguardando atendimento, está em atendimento ou não foi atendido);
+- Total de Atendimentos (que será alimentado a cada vez que o sistema identificar um atendimento realizado).
 
--Tel de Emergência;
-
--Alergias (que serão organizadas em uma lista para ser apresentadas no banco de dados);
-
--Cuidados específicos ( que serão organizados em uma lista para ser apresentado no banco de dados);
-
--Convênio;
-
--Status de Atendimento (onde será informado através de um "query param", se o paciente já foi atendido, está aguardando atendimento, está em atendimento ou não foi atendido);
-
--Total de Atendimentos (que será alimentado a cada vez que o sistema identificar um atendimento realizado).
-
-### Médico:
+### Caddastro/Médico:
 (todos os campos obrigatórios) e mais;
 - Instituição de Ensino;
 - CRM/UF;
@@ -60,7 +54,10 @@ Os campos a serem alimentados para pessoa cadastrada no sistema, podem variar de
 - Status no Sistema; informando caso seja um médico ativo ou inativo;
 - Atendimentos realizados (que será acrescido a cada atendimento identificado pelo sistema).
 
-
+### Cadastro/Enfermeiro:
+(todos os campos obrigatórios) e mais;
+- Instituição de Ensino;
+- Cofen/UF.
 
 ### Atualização
 Essa funcionalidade permite que seja atualizado/alterado os dados de um paciente no sistema e pode ser utlizado sempre que necessário pelo usuário do sistema.
