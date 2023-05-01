@@ -36,14 +36,22 @@ Em caso de sucesso, a resposta será um HTTP Status Code 201 (CREATED), contendo
 No caso dos dados serem inválidos, o HTTP Status Code 400 (Bad Request) será retornado, informando uma mensagem de erro explicativa no corpo da resposta.
 Já se o CPF informado já estar cadastrado, o HTTP Status Code 409 (Conflict) será retornado, informando uma mensagem de erro explicativa no corpo da resposta.
 Os campos a serem alimentados para pessoa cadastrada no sistema, podem variar de acordo com cada tipo de cadastro que estão listados abaixo:
+
 ### Paciente:
-(todos os campos obrigatórios) e mais:
--Tel de Emergência
--Alergias (que serão organizadas em uma lista para ser apresentadas no banco de dados)
--Cuidados específicos ( que serão organizados em uma lista para ser apresentado no banco de dados)
--Convênio
--Status de Atendimento (onde será informado, se o paciente já foi atendido, está aguardando atendimento, está em atendimento ou não foi atendido)
+(todos os campos obrigatórios) e mais
+
+-Tel de Emergência;
+
+-Alergias (que serão organizadas em uma lista para ser apresentadas no banco de dados);
+
+-Cuidados específicos ( que serão organizados em uma lista para ser apresentado no banco de dados);
+
+-Convênio;
+
+-Status de Atendimento (onde será informado, se o paciente já foi atendido, está aguardando atendimento, está em atendimento ou não foi atendido);
+
 -Total de Atendimentos (que será alimentado a cada vez que o sistema identificar um atendimento realizado).
+
 ### Médico:
 
 (todos os campos obrigatórios) e mais;
