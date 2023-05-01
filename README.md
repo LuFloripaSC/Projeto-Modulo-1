@@ -35,6 +35,18 @@ Para se realizar o cadastro de um paciente será ulitlizado o endpoint "api/paci
 Em caso de sucesso, a resposta será um HTTP Status Code 201 (CREATED), contendo no corpo da resposta o código atribuído ao novo paciente cadastrado, além dos demais campos.
 No caso dos dados serem inválidos, o HTTP Status Code 400 (Bad Request) será retornado, informando uma mensagem de erro explicativa no corpo da resposta.
 Já se o CPF informado já estar cadastrado, o HTTP Status Code 409 (Conflict) será retornado, informando uma mensagem de erro explicativa no corpo da resposta.
+Os campos a serem alimentados para pessoa cadastrada no sistema, podem variar de acordo com cada tipo de cadastro que estão listados abaixo:
+### Paciente:
+(todos os campos obrigatórios) e mais;
+Tel de Emergência;
+Alergias (que serão organizadas em uma lista para ser apresentadas no banco de dados);
+Cuidados específicos ( que serão organizados em uma lista para ser apresentado no banco de dados);
+Convênio;
+Status de Atendimento (onde será informado, se o paciente já foi atendido, está aguardando atendimento, está em atendimento ou não foi atendido);
+Total de Atendimentos (que será alimentado a cada vez que o sistema identificar um atendimento realizado).
+### Médico:
+(todos os campos obrigatórios) e mais;
+
 
 ### Atualização
 Essa funcionalidade permite que seja atualizado/alterado os dados de um paciente no sistema e pode ser utlizado sempre que necessário pelo usuário do sistema.
@@ -54,6 +66,7 @@ Na listagem realizada pelo identificador (Id), caso o registro não seja encontr
 Essa funcionalidade permite que seja removido um paciente cadastrado previamente no sistema, e deve ser realizado através de uma requisição HTTP Delete, utilizando-se o endpoint /api/pacientes/{identificador}.
 Em caso da exclusão ser bem sucedida o sistema deve retornar um HTTP com o Status Code 204 (No Content), sem a necessidade de um JSON de retorno do sistema.
 Caso os dados não sejam encontrados o sistema o retorno enviado será um HTTP Status Code 404 (Not Found), retornando uma mensagem de erro explicativa no corpo da resposta.
+
 
 
 
