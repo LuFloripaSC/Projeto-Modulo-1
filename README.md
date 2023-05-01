@@ -38,17 +38,22 @@ Já se o CPF informado já estar cadastrado, o HTTP Status Code 409 (Conflict) s
 
 ### Atualização
 Essa funcionalidade permite que seja atualizado/alterado os dados de um paciente no sistema e pode ser utlizado sempre que necessário pelo usuário do sistema.
-Para se realizar a atualização de um paciente será utilizado o endpoint "/api/pacientes/{identificador}" e deverá ser feita através de uma requisição HTTP PUT e do identificador (Id) do cliente, que será gerado automaticamente quando realizado o cadastro no sistema.
+Para se realizar a atualização de um paciente será utilizado o endpoint "/api/pacientes/{identificador}" e deverá ser feita através de uma requisição HTTP PUT e do identificador (Id) do cliente.
 O corpo da requisição deve conter um objeto JSON com os campos que serão atualizados.
 Da mesma forma que no cadastro, quando houver sucesso na atualização, a resposta será um HTTP Status Code 200 (OK), contendo no corpo da resposta os dados atualizados do paciente.
 No caso de requisição com dados inválidos, o HTTP Status Code 400 (Bad Request) será retornado, informando uma mensagem de erro explicativa no corpo da resposta.
 Em caso de não ser encontrado registro com o código informado, o HTTP Status Code 404 (Not Found) será retornado, retornando uma mensagem de erro explicativa no corpo da resposta.
 
 ### Listagem
-Essa funcionalidade permite que seja listado todos os pacientes já cadastrados previamente no sistema, e deve ser realizado através de uma requisição HTTP Get, e poderá ser realizada de duas formas, utlizando-se o endpoint "/api/paciente" ou "/api/pacientes/{identificador}", onde a primeira permite que seja listado todos os pacientes e a segunda faz uma busca através do identificador (Id);
+Essa funcionalidade permite que seja listado os pacientes já cadastrados previamente no sistema, e deve ser realizado através de uma requisição HTTP Get, e poderá ser realizada de duas formas, utlizando-se o endpoint "/api/paciente" ou "/api/pacientes/{identificador}", onde a primeira permite que seja listado todos os pacientes e a segunda faz uma busca através do identificador (Id);
 Quando a listagem é realizada de maneira genérica, o sistema permite que seja feita uma filtragem atráves de um "query param"  um status não obrigatório que permite identificar o status de atendimento pré definido (AGUARDANDO_ATENDIMENTO, EM_ATENDIMENTO, ATENDIDO e NÃO ATENDIDO), o sistema então retornará com um JSON contentado a listagem dos pacientes encontrados. Já quando a listagem é realizada através do identificador (Id), o "query param" não é apresentado e o sistema retorna um JSON com o paciente com o identificador (Id) correspondente.
 Quando a listagem ocorrer de forma correta a resposta será um HTTP Status Code 200 OK com a listagem dos pacientes, ou os dados do paciente solicitado.
 Na listagem realizada pelo identificador (Id), caso o registro não seja encontrado o sistema retornará a resposta HTTP Status Code 404 (Not Found) informando a mensagem de erro explicativa no corpo da resposta.
+
+### Exclusão
+Essa funcionalidade permite que seja removido um paciente cadastrado previamente no sistema, e deve ser realizado através de uma requisição HTTP Delete, utilizando-se o endpoint /api/pacientes/{identificador}.
+Em caso da exclusão ser bem sucedida o sistema deve retornar um HTTP com o Status Code 204 (No Content), sem a necessidade de um JSON de retorno do sistema.
+Caso os dados não sejam encontrados o sistema o retorno enviado será um HTTP Status Code 404 (Not Found), retornando uma mensagem de erro explicativa no corpo da resposta.
 
 
 
