@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LABMedicine.Migrations
 {
     [DbContext(typeof(LabMedicineBdContext))]
-    [Migration("20230430205052_InitialCreate")]
+    [Migration("20230501210051_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -119,23 +119,23 @@ namespace LABMedicine.Migrations
                         {
                             Id = 13,
                             CPF = "129.809.060-18",
-                            Cofen = "49894u92",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Cofen = "432292",
+                            DataNascimento = new DateTime(1977, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EnsinoEnfermeiro = "Escola de Enfermagem",
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
-                            Telefone = "48 999323442"
+                            Genero = "Feminino",
+                            NomeCompleto = "Aline Carvalho",
+                            Telefone = "48 949953442"
                         },
                         new
                         {
                             Id = 14,
                             CPF = "308.859.180-02",
                             Cofen = "849829498",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DataNascimento = new DateTime(1979, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EnsinoEnfermeiro = "Escola de Enfermagem",
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
-                            Telefone = "48 999323442"
+                            Genero = "Feminino",
+                            NomeCompleto = "Maria Regina Soares",
+                            Telefone = "48 998323442"
                         });
                 });
 
@@ -211,14 +211,14 @@ namespace LABMedicine.Migrations
                             Id = 11,
                             AtendimentosRealizados = 0,
                             CPF = "789.498.200-80",
-                            CRM = "34442",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Ensino = "Escola de Medicina",
+                            CRM = "33442",
+                            DataNascimento = new DateTime(1987, 11, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Ensino = "Escola Superior de Medicina",
                             Especializacao = 2,
                             EstadoNoSistema = 0,
                             Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
-                            Telefone = "48 999323442"
+                            NomeCompleto = "Gerson Cavalcante",
+                            Telefone = "48 900023442"
                         },
                         new
                         {
@@ -226,13 +226,13 @@ namespace LABMedicine.Migrations
                             AtendimentosRealizados = 0,
                             CPF = "770.908.920-85",
                             CRM = "5885493",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Ensino = "Escola de Medicina",
+                            DataNascimento = new DateTime(1947, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Ensino = "Faculdade Superior de Medicina",
                             Especializacao = 0,
                             EstadoNoSistema = 0,
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
-                            Telefone = "48 999323442"
+                            Genero = "Feminino",
+                            NomeCompleto = "Regina Magalhaes",
+                            Telefone = "48 997773442"
                         });
                 });
 
@@ -324,15 +324,15 @@ namespace LABMedicine.Migrations
                         new
                         {
                             Id = 2,
-                            Alergias = "camarão,leite",
+                            Alergias = "queijo",
                             CPF = "257.681.760-20",
-                            CuidadosEspecificos = "Comida com pouco sal",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CuidadosEspecificos = "Evitar esforço fisico",
+                            DataNascimento = new DateTime(1997, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            NomeCompleto = "Renato Souza",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "48 5432344334",
+                            Telefone = "48 9995878442",
                             TotalAtendimentos = 0
                         },
                         new
@@ -340,10 +340,10 @@ namespace LABMedicine.Migrations
                             Id = 3,
                             Alergias = "camarão,leite",
                             CPF = "820.383.680-15",
-                            CuidadosEspecificos = "Comida com pouco sal",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            CuidadosEspecificos = "Toma rémdio para pressão alta",
+                            DataNascimento = new DateTime(1987, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Genero = "Feminino",
+                            NomeCompleto = "Fernanda Almeida",
                             Status = 0,
                             TelEmergencia = "48 54344334",
                             Telefone = "48 999323442",
@@ -352,99 +352,99 @@ namespace LABMedicine.Migrations
                         new
                         {
                             Id = 4,
-                            Alergias = "camarão,leite",
+                            Alergias = "",
                             CPF = "503.319.910-20",
-                            CuidadosEspecificos = "Comida com pouco sal",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            CuidadosEspecificos = "Alergia ao alcool",
+                            DataNascimento = new DateTime(1967, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Genero = "Feminino",
+                            NomeCompleto = "Maria Antonieta",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "48 543456224",
+                            Telefone = "47 993493234",
                             TotalAtendimentos = 0
                         },
                         new
                         {
                             Id = 5,
-                            Alergias = "camarão,leite",
+                            Alergias = "",
                             CPF = "211.570.090-26",
-                            CuidadosEspecificos = "Comida com pouco sal",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CuidadosEspecificos = "",
+                            DataNascimento = new DateTime(1972, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            NomeCompleto = "Rogerio Sampaio",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "48 9598344334",
+                            Telefone = "47 9231323442",
                             TotalAtendimentos = 0
                         },
                         new
                         {
                             Id = 6,
-                            Alergias = "camarão,leite",
+                            Alergias = "",
                             CPF = "102.921.930-33",
-                            CuidadosEspecificos = "Comida com pouco sal",
+                            CuidadosEspecificos = "",
                             DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            Genero = "Feminino",
+                            NomeCompleto = "Claudia Silva",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "48 357834334",
+                            Telefone = "42 9969323442",
                             TotalAtendimentos = 0
                         },
                         new
                         {
                             Id = 7,
-                            Alergias = "camarão,leite",
+                            Alergias = "corantes,leite",
                             CPF = "600.030.830-20",
-                            CuidadosEspecificos = "Comida com pouco sal",
-                            DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CuidadosEspecificos = "Tratamento para leucemia",
+                            DataNascimento = new DateTime(1947, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            NomeCompleto = "Rafael Antunes",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "48 356344334",
+                            Telefone = "48 989667776",
                             TotalAtendimentos = 0
                         },
                         new
                         {
                             Id = 8,
-                            Alergias = "camarão,leite",
+                            Alergias = "",
                             CPF = "540.365.260-49",
-                            CuidadosEspecificos = "Comida com pouco sal",
+                            CuidadosEspecificos = "",
                             DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            Genero = "Feminino",
+                            NomeCompleto = "Raquel Schmidt",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "48 354905334",
+                            Telefone = "48 9911123442",
                             TotalAtendimentos = 0
                         },
                         new
                         {
                             Id = 9,
-                            Alergias = "camarão,leite",
+                            Alergias = "camarão",
                             CPF = "896.203.500-65",
-                            CuidadosEspecificos = "Comida com pouco sal",
+                            CuidadosEspecificos = "Enfartado",
                             DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            NomeCompleto = "João da Silva",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "48 904522034",
+                            Telefone = "48 9358893442",
                             TotalAtendimentos = 0
                         },
                         new
                         {
                             Id = 10,
-                            Alergias = "camarão,leite",
+                            Alergias = "",
                             CPF = "944.482.430-60",
-                            CuidadosEspecificos = "Comida com pouco sal",
+                            CuidadosEspecificos = "Gestante",
                             DataNascimento = new DateTime(1977, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genero = "Masculino",
-                            NomeCompleto = "Luciano Stucker",
+                            Genero = "Feminino",
+                            NomeCompleto = "Leticia Ramos",
                             Status = 0,
-                            TelEmergencia = "48 54344334",
-                            Telefone = "48 999323442",
+                            TelEmergencia = "47 904432134",
+                            Telefone = "48 937753442",
                             TotalAtendimentos = 0
                         });
                 });
