@@ -80,6 +80,15 @@ Essa funcionalidade permite que seja removido um paciente cadastrado previamente
 Em caso da exclusão ser bem sucedida o sistema deve retornar um HTTP com o Status Code 204 (No Content), sem a necessidade de um JSON de retorno do sistema.
 Caso os dados não sejam encontrados o sistema o retorno enviado será um HTTP Status Code 404 (Not Found), retornando uma mensagem de erro explicativa no corpo da resposta.
 
+### Sugestões e Possíveis Melhorias
+O sistema foi desenvolvido para oferecer um cadastro e controle de atendimento básico de uma clínica médica, posteriormente poderá se incluir novas funcionalidades para melhorar a gestão, como filtros para atendimentos organizados por mês, buscar todos os pacientes de determinado convênio médico, incluir um histório de consultas de cada paciente, entre outras melhorias.
+
+### Colaboradores do projeto.
+Os professores Victor e Jamil do curso FULL STACK COQUEIROS/SENAI ajudando no esclarecimento de dúvidas e sugestões de qual caminho seguir durante o desenvolvimento do projeto.
+Os alunos e colegas do curso FULL STACK COQUEIROS em especial o Fernando R. Strijeski que perdeu horas do seu tempo auxiliando e ajudando sempre que foi possível e solicitado.
+
+### Desenvolvedor
+Luciano Stucker
 
 
 
